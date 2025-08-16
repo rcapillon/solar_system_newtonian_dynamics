@@ -1,0 +1,26 @@
+[build-system]
+requires = [
+    "setuptools>=80.9.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solar_system_newtonian_dynamics"
+version = "0.1"
+authors = [
+    { name = "Rémi Capillon" },
+]
+description = "Simulates Newtonian N-body interaction between objects in the solar system with a Newmark method, according to NASA-given starting positions"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy >= 2.3.2",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rcapillon/solar_system_newtonian_dynamics"
