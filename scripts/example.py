@@ -56,9 +56,9 @@ if __name__ == '__main__':
     starting_velocities[8, :] = np.array([1.795291433032886E+00, 5.138113732226138E+00, -1.469947457693157E-01]) * 1e3
 
     # t_end = 395 * 24 * 3600  # a year + a month in seconds
-    t_end = 717 * 24 * 3600  # a martian year + thirty earth days in seconds
+    t_end = 2 * 717 * 24 * 3600  # a martian year + sixty earth days in seconds
     # t_end = 10 * 365 * 24 * 3600  # 10 years
-    n_t = int(1e5)
+    n_t = int(3e5)
     save_interval = int(1e3)
     plot_interval = int(1e2)
 
@@ -66,10 +66,10 @@ if __name__ == '__main__':
 
     n_plotted_bodies = 5
     colors = ['k', 'tab:gray', 'tab:orange', 'tab:blue', 'tab:red']
-    fig = plt.figure(figsize=(8, 8), dpi=100)
-    ax = fig.add_subplot(111, projection='3d')
     count = 1
-    for i in range(0, n_t + save_interval, save_interval):
+    for i in range(0, n_t, save_interval):
+        fig = plt.figure(figsize=(8, 8), dpi=100)
+        ax = fig.add_subplot(111, projection='3d')
         ax.plot(arr_positions[0, 0, :i],
                 arr_positions[0, 1, :i],
                 arr_positions[0, 2, :i],
@@ -79,12 +79,17 @@ if __name__ == '__main__':
                     arr_positions[j, 1, :i:plot_interval],
                     arr_positions[j, 2, :i:plot_interval],
                     '-', color=colors[j], linewidth=0.5)
+            ax.plot(arr_positions[j, 0, i],
+                    arr_positions[j, 1, i],
+                    arr_positions[j, 2, i],
+                    'o', color=colors[j])
             ax.set_xlim(-3e11, 3e11)
             ax.set_ylim(-3e11, 3e11)
             ax.set_zlim(-8e10, 8e10)
             ax.set_aspect('equal')
             ax.grid(False)
         plt.savefig(f'./frame_{count:05d}.png')
+        plt.close(fig)
         count += 1
 
     images = []
@@ -93,7 +98,7 @@ if __name__ == '__main__':
         image_path = str(path)
         images.append(image_path)
 
-    writer = imageio.get_writer('./1_mars_year.mp4', fps=10)
+    writer = imageio.get_writer('./2_mars_years.mp4', fps=10)
     for im in sorted(images):
         writer.append_data(imageio.v2.imread(im))
     writer.close()
