@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import imageio
 from pathlib import Path
 
-from src.solar_system_newtonian_dynamics.N_body_newmark import N_body_newmark
+from solar_system_newtonian_dynamics.N_body_newmark import N_body_newmark
 
 
 if __name__ == '__main__':
