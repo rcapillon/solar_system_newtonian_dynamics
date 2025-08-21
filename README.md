@@ -22,6 +22,7 @@ and show more or less of the planets.
 
 ## Example animation
 Roughley 2 martian years:
+
 <img src="https://github.com/rcapillon/solar_system_newtonian_dynamics/blob/main/readme_files/2_mars_years.gif" width="400">
 
 ## Intended features
