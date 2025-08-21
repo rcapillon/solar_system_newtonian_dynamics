@@ -20,6 +20,9 @@ The example script in the repository simulates the sun and the 8 planets of the 
 This example code can be tinkered with in order to simulate longer periods, have more time-steps for precision, 
 and show more or less of the planets.
 
+## Example animation
+<img src="https://github.com/rcapillon/solar_system_newtonian_dynamics/blob/main/readme_files/2_mars_years.gif" width="400">
+
 ## Intended features
 - Fetch initial planets' positions and velocities directly from NASA HORIZONS using their API, allowing the user to
 simulate from a given time, for a given period, then maybe fetch actual data at the end time of the simulation and 
